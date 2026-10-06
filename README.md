@@ -10,6 +10,7 @@ transcriptor-whisper/
 ├── main.py                  # Punto de entrada
 ├── requirements.txt         # openai-whisper, yt-dlp
 ├── setup_mac.sh             # Instalación automática en macOS
+├── setup_linux.sh           # Instalación automática en Linux (Ubuntu/Debian)
 ├── transcriptor/
 │   ├── __init__.py
 │   ├── app.py               # Interfaz gráfica
@@ -24,10 +25,14 @@ transcriptor-whisper/
 1. Descomprime el zip donde quieras.
 2. Abre Terminal en esa carpeta y ejecuta: `bash setup_mac.sh`
    (instala ffmpeg, Python y Tkinter con Homebrew y crea el entorno `.venv`).
-3. En PyCharm: *File → Open…* y elige la carpeta `transcriptor-whisper`.
-4. Si PyCharm no detecta el intérprete: *Settings → Project → Python Interpreter →
-   Add Interpreter → Existing* y elige `.venv/bin/python`.
-5. Arriba a la derecha selecciona la configuración **Transcriptor** y pulsa ▶.
+3. Ejecuta con: `source .venv/bin/activate && python main.py`
+
+## Instalación (Linux - Ubuntu/Debian)
+
+1. Abre Terminal en la carpeta del proyecto.
+2. Ejecuta el script de instalación: `bash setup_linux.sh`
+   (instala ffmpeg, python3-tk y crea el entorno `.venv`).
+3. Ejecuta la aplicación con: `source .venv/bin/activate && python main.py`
 
 ## Uso
 
@@ -42,9 +47,9 @@ La primera vez que uses cada modelo se descarga (small ≈ 460 MB, medium ≈ 1,
 
 | Error | Solución |
 |---|---|
-| `No module named '_tkinter'` | El intérprete no es el de Homebrew. Repite `setup_mac.sh` y usa `.venv`. |
-| `ffmpeg not found` | `brew install ffmpeg` y reinicia PyCharm. |
-| `Sign in to confirm…` / `Unable to extract` | YouTube ha cambiado algo: `pip install -U yt-dlp` en la Terminal de PyCharm. |
+| `No module named '_tkinter'` | **macOS:** Repite `setup_mac.sh`. **Linux:** `sudo apt install python3-tk`. |
+| `ffmpeg not found` | **macOS:** `brew install ffmpeg`. **Linux:** `sudo apt install ffmpeg`. |
+| `Sign in to confirm…` | YouTube ha cambiado algo: `pip install -U yt-dlp`. |
 
 ## Aviso
 
